@@ -1,3 +1,53 @@
+# E - Learning System (LMS)
+
+This project is a E - Learning System (LMS) built with Prisma and MongoDB. It includes roles for Admins, Teachers, and Students, allowing for course management, student enrollments, and assignment grading.
+
+## Table of Contents
+- [Entity Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
+- [Database Schema](#database-schema)
+- [Setup Instructions](#setup-instructions)
+- [API Endpoints](#api-endpoints)
+- [Contributors](#contributors)
+
+## Entity Relationship Diagram (ERD)
+Below is the ERD showing the relationships between models:
+
+![ERD Diagram](https://dbdiagram.io/d/kael-ERD-679b2312263d6cf9a07cee36)
+![ERD Diagram Photo](docs/ELK-ERD.png)
+
+## Database Schema
+The system is modeled using Prisma ORM with MongoDB. The schema includes:
+
+- `User` (Base model for authentication)
+- `Role` (Admin, Teacher, Student)
+- `Admin` (Admin-specific attributes)
+- `Student` (Students and their enrollments)
+- `Teacher` (Instructors managing courses)
+- `Course` (Courses with lessons, quizzes, and exams)
+- `Enrollment` (Tracking student participation)
+- `Assignment`, `Exam`, `Quiz` (Evaluation models)
+
+For a detailed schema, see [`prisma/schema.prisma`](prisma/schema.prisma).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
