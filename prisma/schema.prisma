@@ -110,11 +110,11 @@ model Lesson {
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  deletedAt DateTime?
   courseId  String? @db.ObjectId
   course    Course? @relation(fields: [courseId], references: [id])
   teacherId String? @db.ObjectId
   teacher   Teacher? @relation(fields: [teacherId], references: [id])
-  deletedAt DateTime?
 }
 
 model Quiz {
@@ -123,13 +123,13 @@ model Quiz {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())
+  deletedAt   DateTime?
   courseId    String? @db.ObjectId
   course      Course? @relation(fields: [courseId], references: [id])
   questions   QuizQuestion[]
   score       Float?
   teacherId   String? @db.ObjectId
   teacher     Teacher? @relation(fields: [teacherId], references: [id])
-  deletedAt   DateTime?
 }
 
 model QuizQuestion {
@@ -138,19 +138,21 @@ model QuizQuestion {
   type       String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @default(now())
+  deletedAt  DateTime?
   quizId     String? @db.ObjectId
   quiz       Quiz? @relation(fields: [quizId], references: [id])
   options    QuizOption[]
-  deletedAt  DateTime?
 }
 
 model QuizOption {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
   text      String
   isCorrect Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  deletedAt DateTime?
   questionId String? @db.ObjectId
   question  QuizQuestion? @relation(fields: [questionId], references: [id])
-  deletedAt DateTime?
 }
 
 model Exam {
@@ -159,13 +161,13 @@ model Exam {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())
+  deletedAt   DateTime?
   courseId    String? @db.ObjectId
   course      Course? @relation(fields: [courseId], references: [id])
   questions   ExamQuestion[]
   score       Float?
   teacherId   String? @db.ObjectId
   teacher     Teacher? @relation(fields: [teacherId], references: [id])
-  deletedAt   DateTime?
 }
 
 model ExamQuestion {
@@ -174,19 +176,21 @@ model ExamQuestion {
   type      String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  deletedAt DateTime?
   examId    String? @db.ObjectId
   exam      Exam? @relation(fields: [examId], references: [id])
   options   ExamOption[]
-  deletedAt DateTime?
 }
 
 model ExamOption {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
   text      String
   isCorrect Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  deletedAt DateTime?
   questionId String? @db.ObjectId
   question  ExamQuestion? @relation(fields: [questionId], references: [id])
-  deletedAt DateTime?
 }
 
 model Assignment {
@@ -196,13 +200,13 @@ model Assignment {
   dueDate     DateTime
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())
+  deletedAt   DateTime?
   courseId    String? @db.ObjectId
   course      Course? @relation(fields: [courseId], references: [id])
   studentId   String? @db.ObjectId
   student     Student? @relation(fields: [studentId], references: [id])
   teacherId   String? @db.ObjectId
   teacher     Teacher? @relation(fields: [teacherId], references: [id])
-  deletedAt   DateTime?
 }
 
 model Enrollment {
