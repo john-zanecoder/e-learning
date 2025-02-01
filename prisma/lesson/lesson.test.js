@@ -3,7 +3,7 @@ const {
   createLesson,
   updateLesson,
   deleteLesson,
-} = require('../lesson'); // Adjust the path as necessary
+} = require('../lesson/lesson'); // Adjust the path as necessary
 
 jest.mock('@prisma/client', () => {
   const mPrismaClient = {

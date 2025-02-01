@@ -3,7 +3,7 @@ const {
   createRole,
   updateRole,
   deleteRole,
-} = require('../role'); // Adjust the path as necessary
+} = require('../role/role'); // Adjust the path as necessary
 
 jest.mock('@prisma/client', () => {
   const mPrismaClient = {

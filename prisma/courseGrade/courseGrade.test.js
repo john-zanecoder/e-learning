@@ -4,7 +4,7 @@ const {
   createCourseGrade,
   updateCourseGrade,
   deleteCourseGrade,
-} = require('../courseGrade'); // Adjust the path as necessary
+} = require('../courseGrade/courseGrade'); // Adjust the path as necessary
 
 jest.mock('@prisma/client', () => {
   const mPrismaClient = {

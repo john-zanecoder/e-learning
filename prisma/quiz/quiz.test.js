@@ -4,7 +4,7 @@ const {
   createQuiz,
   updateQuiz,
   deleteQuiz,
-} = require('../quiz'); // Adjust the path as necessary
+} = require('../quiz/quiz'); // Adjust the path as necessary
 
 jest.mock('@prisma/client', () => {
   const mPrismaClient = {

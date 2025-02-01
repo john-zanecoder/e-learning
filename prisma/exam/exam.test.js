@@ -4,7 +4,7 @@ const {
   createExam,
   updateExam,
   deleteExam,
-} = require('../exam'); // Adjust the path as necessary
+} = require('./exam'); // Adjust the path as necessary
 
 jest.mock('@prisma/client', () => {
   const mPrismaClient = {

@@ -4,7 +4,7 @@ const {
   createEnrollment,
   updateEnrollment,
   deleteEnrollment,
-} = require('../enrollment'); // Adjust the path as necessary
+} = require('../enrollment/enrollment'); // Adjust the path as necessary
 
 jest.mock('@prisma/client', () => {
   const mPrismaClient = {
