@@ -78,7 +78,7 @@ describe('Prisma Client', () => {
 
   describe('Fetching Logics', () => {
     test('getUserById', async () => {
-      const mockUser = { id: '1', username: 'testuser', email: 'testuser@example.com' };
+      const mockUser = { id: '1', username: 'testuser', email: 'testuser@example.com', deletedAt: null };
       prisma.user.findUnique.mockResolvedValue(mockUser);
 
       const fetchedUser = await getUserById('1');
@@ -87,7 +87,7 @@ describe('Prisma Client', () => {
     });
 
     test('getUsersByRole', async () => {
-      const mockUsers = [{ id: '1', username: 'testuser', email: 'testuser@example.com' }];
+      const mockUsers = [{ id: '1', username: 'testuser', email: 'testuser@example.com', deletedAt: null }];
       prisma.user.findMany.mockResolvedValue(mockUsers);
 
       const users = await getUsersByRole('STUDENT');
@@ -96,7 +96,7 @@ describe('Prisma Client', () => {
     });
 
     test('getAllUsers', async () => {
-      const mockUsers = [{ id: '1', username: 'testuser', email: 'testuser@example.com' }];
+      const mockUsers = [{ id: '1', username: 'testuser', email: 'testuser@example.com', deletedAt: null }];
       prisma.user.findMany.mockResolvedValue(mockUsers);
 
       const users = await getAllUsers();
@@ -105,7 +105,7 @@ describe('Prisma Client', () => {
     });
 
     test('getStudentCourseById', async () => {
-      const mockStudentCourse = { id: '1', studentId: 'studentId', courseId: 'courseId' };
+      const mockStudentCourse = { id: '1', studentId: 'studentId', courseId: 'courseId', deletedAt: null };
       prisma.studentCourse.findUnique.mockResolvedValue(mockStudentCourse);
 
       const fetchedStudentCourse = await getStudentCourseById('1');
@@ -114,7 +114,7 @@ describe('Prisma Client', () => {
     });
 
     test('getStudentCourseByStudentId', async () => {
-      const mockStudentCourses = [{ id: '1', studentId: 'studentId', courseId: 'courseId' }];
+      const mockStudentCourses = [{ id: '1', studentId: 'studentId', courseId: 'courseId', deletedAt: null }];
       prisma.studentCourse.findMany.mockResolvedValue(mockStudentCourses);
 
       const studentCourses = await getStudentCourseByStudentId('studentId');
@@ -123,7 +123,7 @@ describe('Prisma Client', () => {
     });
 
     test('getStudentCourseByCourseId', async () => {
-      const mockStudentCourses = [{ id: '1', studentId: 'studentId', courseId: 'courseId' }];
+      const mockStudentCourses = [{ id: '1', studentId: 'studentId', courseId: 'courseId', deletedAt: null }];
       prisma.studentCourse.findMany.mockResolvedValue(mockStudentCourses);
 
       const studentCourses = await getStudentCourseByCourseId('courseId');
@@ -132,7 +132,7 @@ describe('Prisma Client', () => {
     });
 
     test('getQuizById', async () => {
-      const mockQuiz = { id: '1', title: 'Test Quiz', description: 'Test Description', courseId: 'courseId', score: 100 };
+      const mockQuiz = { id: '1', title: 'Test Quiz', description: 'Test Description', courseId: 'courseId', score: 100, deletedAt: null };
       prisma.quiz.findUnique.mockResolvedValue(mockQuiz);
 
       const fetchedQuiz = await getQuizById('1');
@@ -143,7 +143,7 @@ describe('Prisma Client', () => {
 
   describe('Creating Logics', () => {
     test('createUser', async () => {
-      const mockUser = { id: '1', username: 'newuser', email: 'newuser@example.com' };
+      const mockUser = { id: '1', username: 'newuser', email: 'newuser@example.com', deletedAt: null };
       prisma.user.create.mockResolvedValue(mockUser);
 
       const userData = {
@@ -161,7 +161,7 @@ describe('Prisma Client', () => {
     });
 
     test('createLesson', async () => {
-      const mockLesson = { id: '1', title: 'New Lesson', content: 'Lesson Content', courseId: 'courseId' };
+      const mockLesson = { id: '1', title: 'New Lesson', content: 'Lesson Content', courseId: 'courseId', deletedAt: null };
       prisma.lesson.create.mockResolvedValue(mockLesson);
 
       const lessonData = {
@@ -176,7 +176,7 @@ describe('Prisma Client', () => {
     });
 
     test('createRole', async () => {
-      const mockRole = { id: '1', name: 'New Role', description: 'Role Description' };
+      const mockRole = { id: '1', name: 'New Role', description: 'Role Description', deletedAt: null };
       prisma.role.create.mockResolvedValue(mockRole);
 
       const roleData = {
@@ -190,7 +190,7 @@ describe('Prisma Client', () => {
     });
 
     test('createCourse', async () => {
-      const mockCourse = { id: '1', title: 'New Course', description: 'Course Description', teacherId: 'teacherId' };
+      const mockCourse = { id: '1', title: 'New Course', description: 'Course Description', teacherId: 'teacherId', deletedAt: null };
       prisma.course.create.mockResolvedValue(mockCourse);
 
       const courseData = {
@@ -205,7 +205,7 @@ describe('Prisma Client', () => {
     });
 
     test('createStudentCourse', async () => {
-      const mockStudentCourse = { id: '1', studentId: 'studentId', courseId: 'courseId' };
+      const mockStudentCourse = { id: '1', studentId: 'studentId', courseId: 'courseId', deletedAt: null };
       prisma.studentCourse.create.mockResolvedValue(mockStudentCourse);
 
       const studentCourseData = {
@@ -219,7 +219,7 @@ describe('Prisma Client', () => {
     });
 
     test('createQuiz', async () => {
-      const mockQuiz = { id: '1', title: 'New Quiz', description: 'Quiz Description', courseId: 'courseId', score: 100 };
+      const mockQuiz = { id: '1', title: 'New Quiz', description: 'Quiz Description', courseId: 'courseId', score: 100, deletedAt: null };
       prisma.quiz.create.mockResolvedValue(mockQuiz);
 
       const quizData = {
@@ -237,7 +237,7 @@ describe('Prisma Client', () => {
 
   describe('Updating Logics', () => {
     test('updateUser', async () => {
-      const mockUser = { id: '1', username: 'updateduser', email: 'updateduser@example.com' };
+      const mockUser = { id: '1', username: 'updateduser', email: 'updateduser@example.com', deletedAt: null };
       prisma.user.update.mockResolvedValue(mockUser);
 
       const updatedUserData = {
@@ -255,7 +255,7 @@ describe('Prisma Client', () => {
     });
 
     test('updateLesson', async () => {
-      const mockLesson = { id: '1', title: 'Updated Lesson', content: 'Updated Content', courseId: 'courseId' };
+      const mockLesson = { id: '1', title: 'Updated Lesson', content: 'Updated Content', courseId: 'courseId', deletedAt: null };
       prisma.lesson.update.mockResolvedValue(mockLesson);
 
       const updatedLessonData = {
@@ -270,7 +270,7 @@ describe('Prisma Client', () => {
     });
 
     test('updateRole', async () => {
-      const mockRole = { id: '1', name: 'Updated Role', description: 'Updated Description' };
+      const mockRole = { id: '1', name: 'Updated Role', description: 'Updated Description', deletedAt: null };
       prisma.role.update.mockResolvedValue(mockRole);
 
       const updatedRoleData = {
@@ -284,7 +284,7 @@ describe('Prisma Client', () => {
     });
 
     test('updateCourse', async () => {
-      const mockCourse = { id: '1', title: 'Updated Course', description: 'Updated Description', teacherId: 'teacherId' };
+      const mockCourse = { id: '1', title: 'Updated Course', description: 'Updated Description', teacherId: 'teacherId', deletedAt: null };
       prisma.course.update.mockResolvedValue(mockCourse);
 
       const updatedCourseData = {
@@ -299,7 +299,7 @@ describe('Prisma Client', () => {
     });
 
     test('updateStudentCourse', async () => {
-      const mockStudentCourse = { id: '1', studentId: 'newStudentId', courseId: 'newCourseId' };
+      const mockStudentCourse = { id: '1', studentId: 'newStudentId', courseId: 'newCourseId', deletedAt: null };
       prisma.studentCourse.update.mockResolvedValue(mockStudentCourse);
 
       const updatedStudentCourseData = {
@@ -313,7 +313,7 @@ describe('Prisma Client', () => {
     });
 
     test('updateQuiz', async () => {
-      const mockQuiz = { id: '1', title: 'Updated Quiz', description: 'Updated Description', courseId: 'courseId', score: 90 };
+      const mockQuiz = { id: '1', title: 'Updated Quiz', description: 'Updated Description', courseId: 'courseId', score: 90, deletedAt: null };
       prisma.quiz.update.mockResolvedValue(mockQuiz);
 
       const updatedQuizData = {
@@ -331,8 +331,8 @@ describe('Prisma Client', () => {
 
   describe('Deleting Logics', () => {
     test('deleteUser', async () => {
-      const mockUser = { id: '1', username: 'deleteuser', email: 'deleteuser@example.com' };
-      prisma.user.delete.mockResolvedValue(mockUser);
+      const mockUser = { id: '1', username: 'deleteuser', email: 'deleteuser@example.com', deletedAt: new Date() };
+      prisma.user.update.mockResolvedValue(mockUser);
 
       const deletedUser = await deleteUser('1');
       expect(deletedUser).toBeDefined();
@@ -340,8 +340,8 @@ describe('Prisma Client', () => {
     });
 
     test('deleteLesson', async () => {
-      const mockLesson = { id: '1', title: 'Delete Lesson', content: 'Lesson Content', courseId: 'courseId' };
-      prisma.lesson.delete.mockResolvedValue(mockLesson);
+      const mockLesson = { id: '1', title: 'Delete Lesson', content: 'Lesson Content', courseId: 'courseId', deletedAt: new Date() };
+      prisma.lesson.update.mockResolvedValue(mockLesson);
 
       const deletedLesson = await deleteLesson('1');
       expect(deletedLesson).toBeDefined();
@@ -349,8 +349,8 @@ describe('Prisma Client', () => {
     });
 
     test('deleteRole', async () => {
-      const mockRole = { id: '1', name: 'Delete Role', description: 'Role Description' };
-      prisma.role.delete.mockResolvedValue(mockRole);
+      const mockRole = { id: '1', name: 'Delete Role', description: 'Role Description', deletedAt: new Date() };
+      prisma.role.update.mockResolvedValue(mockRole);
 
       const deletedRole = await deleteRole('1');
       expect(deletedRole).toBeDefined();
@@ -358,8 +358,8 @@ describe('Prisma Client', () => {
     });
 
     test('deleteCourse', async () => {
-      const mockCourse = { id: '1', title: 'Delete Course', description: 'Course Description', teacherId: 'teacherId' };
-      prisma.course.delete.mockResolvedValue(mockCourse);
+      const mockCourse = { id: '1', title: 'Delete Course', description: 'Course Description', teacherId: 'teacherId', deletedAt: new Date() };
+      prisma.course.update.mockResolvedValue(mockCourse);
 
       const deletedCourse = await deleteCourse('1');
       expect(deletedCourse).toBeDefined();
@@ -367,8 +367,8 @@ describe('Prisma Client', () => {
     });
 
     test('deleteStudentCourse', async () => {
-      const mockStudentCourse = { id: '1', studentId: 'studentId', courseId: 'courseId' };
-      prisma.studentCourse.delete.mockResolvedValue(mockStudentCourse);
+      const mockStudentCourse = { id: '1', studentId: 'studentId', courseId: 'courseId', deletedAt: new Date() };
+      prisma.studentCourse.update.mockResolvedValue(mockStudentCourse);
 
       const deletedStudentCourse = await deleteStudentCourse('1');
       expect(deletedStudentCourse).toBeDefined();
@@ -376,8 +376,8 @@ describe('Prisma Client', () => {
     });
 
     test('deleteQuiz', async () => {
-      const mockQuiz = { id: '1', title: 'Delete Quiz', description: 'Quiz Description', courseId: 'courseId', score: 100 };
-      prisma.quiz.delete.mockResolvedValue(mockQuiz);
+      const mockQuiz = { id: '1', title: 'Delete Quiz', description: 'Quiz Description', courseId: 'courseId', score: 100, deletedAt: new Date() };
+      prisma.quiz.update.mockResolvedValue(mockQuiz);
 
       const deletedQuiz = await deleteQuiz('1');
       expect(deletedQuiz).toBeDefined();
